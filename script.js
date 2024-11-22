@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const containerName = containers[i].getElementsByTagName('Name')[0].textContent;
             const containerUrl = `https://${storageAccountName}.blob.core.windows.net/${containerName}?${sasToken}`;
 
-			if (containerName.startsWith('$')) {
-                continue; // Skip containers that start with $
+		if (containerName.startsWith('$') || containerName.startsWith('azure-webjobs')) {
+                continue; // Skip containers that start with $ or "azure-webjobs"
             }
 
             const itemDiv = document.createElement('div');
