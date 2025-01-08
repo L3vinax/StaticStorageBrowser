@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const breadcrumbDiv = document.getElementById('breadcrumb');
     const containerDiv = document.getElementById('container');
     const navigateBackButton = document.getElementById('navigateBack');
-    const storageAccountName = 'STORAGE_ACCOUNT_NAME';
+    const storageAccountName = 'YOUR_STORAGE_ACCOUNT';
     const sasToken = 'YOUR_SAS_TOKEN'; // Securely generate and store your SAS token
 
     const listContainersUrl = `https://${storageAccountName}.blob.core.windows.net/?comp=list&${sasToken}`;
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const containerName = containers[i].getElementsByTagName('Name')[0].textContent;
             const containerUrl = `https://${storageAccountName}.blob.core.windows.net/${containerName}?${sasToken}`;
 
-		if (containerName.startsWith('$') || containerName.startsWith('azure-webjobs')) {
+            if (containerName.startsWith('$') || containerName.startsWith('azure-webjobs')) {
                 continue; // Skip containers that start with $ or "azure-webjobs"
             }
 
